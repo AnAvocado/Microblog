@@ -18,31 +18,7 @@
     </header>
 
     <main class="main">
-        <section>
-            <h1>Add New Entry</h1>
-            <form class="form" action="/" method="POST">
-                <p class="form__input">
-                    <label for="entry" class="form__label">Entry Content:</label>
-                    <textarea class="form__textarea" name="content" id="entry"></textarea>
-                </p>
-                <button type="submit" class="form__submit">Add Entry</button>
-
-            </form>
-        </section>
-        <section>
-            <h1>Recent Posts</h1>
-            {% for entry in entries %}
-                <article class="entry">
-                    <div>
-                        <h2 class="entry__title">{{ entry[0] | truncate(30, true) }}</h2>
-                        <time class="entry__date" datetime="21-02-2021">• {{ entry[1] }}</time>
-                    </div>
-                    <p class="entry__content">
-                        {{ entry[0] }}
-                    </p>
-                </article>
-            {% endfor %}
-        </section>
+        <p>This is a test paragraph</p>
     </main>
 
     <footer class="footer">

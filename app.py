@@ -1,13 +1,14 @@
 from flask import Flask, render_template, request, redirect
 import datetime
 from pymongo import MongoClient
+from dotenv import load_dotenv
+import os
 
-
+load_dotenv()
 
 def create_app():
     app = Flask(__name__)
-    client = MongoClient("mongodb+srv://andrew:Gogogo20!@cluster0.sbxem.mongodb.net/test")
-
+    client = MongoClient(os.environ.get("MONGODB_URI"))
     app.db = client.microblog
 
     @app.route("/", methods=["GET", "POST"])
@@ -28,5 +29,14 @@ def create_app():
         ]
 
         return render_template("home.html", entries=entries_with_date)
+
+    @app.route("/calendar")
+    def calendar():
+        return render_template("calendar.html")
+
+
+    ##############
+    # END OF APP #
+    ##############
     return app
 
